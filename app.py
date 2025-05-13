@@ -1,4 +1,5 @@
 from flask import Flask
+import os
 
 app = Flask("hello-api")
 
@@ -11,4 +12,5 @@ def index(name):
 def index2():
     return f"Hello, friend"
 
-app.run(host="0.0.0.0", port=5200)
+port = os.environ.get("APP_PORT", 5200)
+app.run(host="0.0.0.0", port=port)
